@@ -23,6 +23,7 @@ public class Member {
     @Embedded
     private Address address;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member")  //mappedBy는 '나는 주인이 아니다'. Order 엔티티에 있는 Member member에 맵핑된거다라는 의미이다. ( 읽기 전용이다 )
     private List<Order> orders = new ArrayList<>();
 }

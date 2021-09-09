@@ -49,11 +49,20 @@ public class OrderSimpleApiController {
         //첫번째 주문의 Delivery를 찾는다.
         //두번째 주문의 Member를 찾는다.
         //두번째 주문의 Delivery를 찾는다.
-        //총 쿼리가 5번 나간다.  ㅍ
+        //총 쿼리가 5번 나간다.
         List<SimpleOrderDto> result = orders.stream()
                 .map(o -> new SimpleOrderDto(o))
                 .collect(Collectors.toList());
 
+        return result;
+    }
+
+    @GetMapping("/api/v3/simple-orders")
+    public List<SimpleOrderDto> ordersV3() {
+        List<Order> orders = orderReposiroty.findAllWithMemberDelivery();
+        List<SimpleOrderDto> result = orders.stream()
+                .map(o -> new SimpleOrderDto(o))
+                .collect(Collectors.toList());
         return result;
     }
 

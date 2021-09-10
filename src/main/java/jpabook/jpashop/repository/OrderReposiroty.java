@@ -10,7 +10,6 @@ import org.springframework.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
-import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +101,7 @@ public class OrderReposiroty {
     }
 
 
+
     public List<Order> findAllWithMemberDelivery() {
         return em.createQuery(
                 " select o from Order o" +
@@ -110,6 +110,5 @@ public class OrderReposiroty {
 
         ).getResultList();
     }
-
 
 }
